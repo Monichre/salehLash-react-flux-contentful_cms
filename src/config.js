@@ -2,12 +2,9 @@
 // config.js
 export const config =  {
 	title: "Saleh Lash",
-	
-  bucket: {
-    slug: 'saleh-lash',
-    media_url: 'https://cosmicjs.com/uploads',
-    read_key: 'ZgSQ6KvuioDnW7y5pNyTDoBHCbgzwJTwue26ZcnOJsRzO5iXqF',
-    write_key: 'rNSBNMwbF4ehCK4EgWdjkLjr4fj00MezTOk2ZDBP2d61UI77Zj'
+  auth: {
+    space: '26dlqxhe3y10',
+    accessToken: '08f426f9cae1b5bb5ce5a8b94ae4970054b44a5ceaf94234ec8fa66824a19b22'
   },
   email_info : {
     host: 'smtp.gmail.com',

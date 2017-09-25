@@ -492,6 +492,7 @@ a:hover>span.site-name{
   position: absolute;
   top: 45%;
   width: 100%;
+  z-index: 10;
   max-width: 100%;
 }
 .slider-description-inner {
@@ -3135,4 +3136,22 @@ border-top-color: rgba(0, 0, 0, 0);
 }
 .alert-danger .alert-link {
 color: #d2d2d2;
+}
+
+.main-slider-image-wrap {
+  height: 500px;
+  width: 100%;
+}
+.main-slider-image-wrap img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.owl-stage {
+  
+}
+.owl-item {
+  height: 100%;
+  width: 100%;
 }

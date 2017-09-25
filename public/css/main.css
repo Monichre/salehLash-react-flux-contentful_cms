@@ -3142,3 +3142,13 @@ a img.aligncenter {
 .alert-danger .alert-link {
   color: #d2d2d2;
 }
+.main-slider-image-wrap {
+    height: 500px;
+    width: 100%;
+}
+.main-slider-image-wrap img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}

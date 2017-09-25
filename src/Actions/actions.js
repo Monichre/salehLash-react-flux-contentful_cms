@@ -1,6 +1,6 @@
 // actions.js
 
-import Cosmic from 'cosmicjs'
+import * as Contentful from 'contentful'
 import _ from 'lodash'
 
 // AppStore
@@ -11,83 +11,51 @@ export function getStore(callback) {
 
     let pages = {}
 
-    Cosmic.getObjects(config, function(err, response) {
-
-        let objects = response.objects
-
-        /* Globals
-        ======================== */
-        let globals = AppStore.data.globals
-        
-
-
-        // globals.text.menu_title = menu_title.value
-
-        // let footer_text = _.find(metafields, {
-        //     key: 'footer-text'
-        // })
-        // globals.text.footer_text = footer_text.value
-
-        // let site_title = _.find(metafields, {
-        //     key: 'site-title'
-        // })
-        // globals.text.site_title = site_title.value
-
-        // // Social
-        // globals.social = response.object['social']
-        // metafields = globals.social.metafields
-        // let twitter = _.find(metafields, {
-        //     key: 'twitter'
-        // })
-        // globals.social.twitter = twitter.value
-        // let facebook = _.find(metafields, {
-        //     key: 'facebook'
-        // })
-        // globals.social.facebook = facebook.value
-        // let github = _.find(metafields, {
-        //     key: 'github'
-        // })
-        // globals.social.github = github.value
-
-        // Nav
-        const nav_items = response.object['navigation'].metafields
-        console.log(nav_items)
-
-        globals.nav_items = nav_items
-
-        AppStore.data.globals = globals
-
-        /* Pages
-        ======================== */
-        let pages = objects.type.page
-        AppStore.data.pages = pages
-
-       
-
-        
-        // Emit change
-        AppStore.data.ready = true
-        AppStore.emitChange()
-
-        // Trigger callback (from server)
-        if (callback) {
-            callback(false, AppStore)
-        }
-
+    const cms_client = Contentful.createClient({
+        space: config.auth.space,
+        accessToken: config.auth.accessToken
     })
+    cms_client.getEntries()
+        .then((response) => {
+            console.log(response)
+            let response_items = response.items
+
+            let pages = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'page')
+            let site_components = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'siteComponent')
+
+            console.log(pages)
+            console.log(site_components)
+
+            AppStore.data.pages = pages
+            AppStore.data.site_components = site_components
+
+            AppStore.data.ready = true
+            AppStore.emitChange()
+    
+            // Trigger callback (from server)
+            if (callback) {
+                callback(false, AppStore)
+            }
+        })
 }
 
 export function getPageData(page_slug, post_slug) {
+    const isForThisPage = (page_slug, component) => component.fields.page.fields.pageTitle === page_slug
 
-    if (!page_slug)
-        page_slug = 'home'
-
+    if (!page_slug) {
+        page_slug = 'Home'
+    }
     // Get page info
+    console.log(page_slug)
     const data = AppStore.data
     const pages = data.pages
-    const page = _.find(pages, {
-        slug: page_slug
-    })
+    console.log(data)
+    console.log(pages)
+    const page = _.find(pages, (p) => p.fields.pageTitle === page_slug)
+    console.log(page)
+    page.components = _.filter(data.site_components, (component) => isForThisPage(page_slug, component))
+    console.log(page.components)
+
 
 	console.log(AppStore.data)
     AppStore.data.page = page
