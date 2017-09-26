@@ -50,12 +50,14 @@ export function getPageData(page_slug, post_slug) {
     const data = AppStore.data
     const pages = data.pages
     console.log(data)
-    console.log(pages)
+    
     const page = _.find(pages, (p) => p.fields.pageTitle === page_slug)
-    console.log(page)
+    
     page.components = _.filter(data.site_components, (component) => isForThisPage(page_slug, component))
-    console.log(page.components)
-
+    page.components.forEach(function(component){
+        page[`${component.fields.siteComponentTitle.split(' ')[0]}`] = component
+    }) 
+    console.log(page)
 
 	console.log(AppStore.data)
     AppStore.data.page = page

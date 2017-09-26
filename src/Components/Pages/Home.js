@@ -20,9 +20,9 @@ export default class Home extends Component {
     render(){
         const data = AppStore.data
         const page = data.page
-        const slider_photos = page.components[1].fields.siteComponentPhotos.map((component) => component.fields.file.url)
-        const about_component_text = page.components[0].fields.content
-        const about_component_images = page.components[0].fields.siteComponentPhotos.map((photo) => photo.fields.file.url)
+        const slider_photos = page.Main.fields.siteComponentPhotos.map((component) => component.fields.file.url)
+        const about_component_text = page.About.fields.content
+        const about_component_images = page.About.fields.siteComponentPhotos.map((photo) => photo.fields.file.url)
         const photos_html = slider_photos.map((photo_url) => {
             return <img className="img-responsive" src={photo_url} alt=""/>
         })
@@ -99,6 +99,119 @@ export default class Home extends Component {
                                     </OwlCarousel>
                                    
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container margin-top">
+                        <div className="main-title">
+                            <h1>Our Philosophy</h1>
+                            <hr/>
+                            <h6>qui dolorem ipsum quia dolor sit amet</h6>
+                        </div>
+                        <div className="services-home-page">
+                            <div className="row">
+                                <div className="col-md-4">
+                                    <div className="services-icon">
+                                        <img src="img/icons/girl.svg" alt="" height="30px;"/>
+                                        
+                                    </div>
+                                    <h4>Beauty</h4>
+                                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="services-icon">
+                                        <img src="img/icons/cosmetics.svg" alt="" height="30px;"/>
+                                        
+                                    </div>
+                                    <h4>Leisure</h4>
+                                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="services-icon">
+                                        <img src="img/icons/shampoo.svg" alt="" height="30px;"/>
+                                        
+                                    </div>
+                                    <h4>Relaxation</h4>
+                                    <p>Expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because procure him.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="container margin-top">
+                        <div className="main-title">
+                            <h1>{page.Home.fields.title}</h1>
+                            <hr/>
+                            <h6>{page.Home.fields.subHeader}</h6>
+                        </div>
+                        <div className="portfolio-wrapper">
+                            <button className="nav">
+                                <span className="icon-container">
+                                    <span className="line line01"></span>
+                                    <span className="line line02"></span>
+                                    <span className="line line03"></span>
+                                    <span className="line line04"></span>
+                                </span>
+                            </button>
+                            <div className="works-filter">
+                                <a href="javascript:void(0)" className="filter active" data-filter="mix">All</a>
+                                <a href="javascript:void(0)" className="filter" data-filter="branding">Lashes</a>
+                                <a href="javascript:void(0)" className="filter" data-filter="web">Facials</a>
+                                <a href="javascript:void(0)" className="filter" data-filter="graphic">Buttholes</a>
+                            </div>
+                            <div className="js-masonry">
+                                <div className="row" id="work-grid">
+                                    {page.Home.fields.siteComponentPhotos.map((portfolio_item) => {
+                                        if (page.Home.fields.siteComponentPhotos.indexOf(portfolio_item) % 2 === 0) {
+                                            return (
+                                                <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
+                                                    <div className="img home-portfolio-image">
+                                                        <img src={portfolio_item.fields.file.url} alt="Portfolio Item"/>
+                                                        <div className="overlay-thumb">
+                                                            <a href="javascript:void(0)" className="like-product">
+                                                                <i className="ion-ios-heart-outline"></i>
+                                                                <span className="like-product">Liked</span>
+                                                                <span className="output">250</span>
+                                                            </a>
+                                                            <div className="details">
+                                                                <span className="title">Saleh Lash</span>
+                                                                <span className="info">NEW LOOK & Saleh Lash</span>
+                                                            </div>
+                                                            <span className="btnBefore"></span>
+                                                            <span className="btnAfter"></span>
+                                                            <a className="main-portfolio-link" href="single-project.html"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )
+                                        } else {
+                                            <div className="col-md-4 col-sm-4 col-xs-12 mix web">
+                                                <div className="img home-portfolio-image">
+                                                    <img src="img/stock-2.jpg" alt="Portfolio Item"/>
+                                                    <div className="overlay-thumb">
+                                                        <a href="javascript:void(0)" className="like-product">
+                                                            <i className="ion-ios-heart-outline"></i>
+                                                            <span className="like-product">Liked</span>
+                                                            <span className="output">60</span>
+                                                        </a>
+                                                        <div className="details">
+                                                            <span className="title">WATCH-J</span>
+                                                            <span className="info">NEW TREND FASHION</span>
+                                                        </div>
+                                                        <span className="btnBefore"></span>
+                                                        <span className="btnAfter"></span>
+                                                        <a className="main-portfolio-link" href="single-project.html"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                            
+                                    })}
+                    
+                                </div>
+                            </div>
+                        
+                            <div className="load-more">
+                                <a href="javascript:void(0)" id="load-more"><i className="icon-refresh"></i></a>
                             </div>
                         </div>
                     </div>
