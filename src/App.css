@@ -3155,3 +3155,13 @@ color: #d2d2d2;
   height: 100%;
   width: 100%;
 }
+
+.about_slider_img {
+  height: 350px;
+}
+.about_slider_img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}

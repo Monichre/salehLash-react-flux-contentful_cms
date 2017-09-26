@@ -20,7 +20,9 @@ export default class Home extends Component {
     render(){
         const data = AppStore.data
         const page = data.page
-        const slider_photos = page.components[0].fields.siteComponentPhotos.map((component) => component.fields.file.url)
+        const slider_photos = page.components[1].fields.siteComponentPhotos.map((component) => component.fields.file.url)
+        const about_component_text = page.components[0].fields.content
+        const about_component_images = page.components[0].fields.siteComponentPhotos.map((photo) => photo.fields.file.url)
         const photos_html = slider_photos.map((photo_url) => {
             return <img className="img-responsive" src={photo_url} alt=""/>
         })
@@ -29,7 +31,6 @@ export default class Home extends Component {
             nav: true,
 			navText : ["<i class='fa fa-lg fa-chevron-left'></i>","<i class='fa fa-lg fa-chevron-right'></i>"],
 			dots: false,
-            margin: 10,
             lazyLoad: true,
             autoplay: true,
             loop: true
@@ -73,7 +74,35 @@ export default class Home extends Component {
                             </OwlCarousel>
                         </div>
                     </div>
-        </div>
+                    <div className="container margin-top">
+                        <div className="history-wrapper">
+                            <div className="col-md-6 wow fadeInUp" data-wow-duration="0.6s" data-wow-delay="0.5s">
+                                <div className="row">
+                                    <article>
+                                        <h1>About Saleh</h1>
+                                        <p>{about_component_text}</p>
+                                    </article>
+                                </div>
+                            </div>
+                            <div className="col-md-5 col-md-offset-1 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                                <div className="row">
+                                    <OwlCarousel id="history-images" className="owl-carousel owl-theme" ref="owl" options={options} events={events}>
+                                            {about_component_images.map((photo_url) => {
+                                                return (
+                                                    
+                                                        <div className="about_slider_img">
+                                                            <img className="img-responsive center-block" src={photo_url} alt="About"/>
+                                                        </div>
+                                                    
+                                                    ) 
+                                            })}
+                                    </OwlCarousel>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         )
     }
 }
