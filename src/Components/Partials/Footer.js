@@ -33,12 +33,7 @@ export default class Footer extends Component {
                                         <div className="footer-inner">
                                             <div className="footer-content">
                                             <ul className="social-media">
-                                                <li><a href="#"><i className="iconmoon-facebook"></i></a></li>
-                                                <li><a href="#"><i className="iconmoon-twitter"></i></a></li>
-                                                <li><a href="#"><i className="iconmoon-flickr2"></i></a></li>
-                                                <li><a href="#"><i className="iconmoon-dribbble3"></i></a></li>
-                                                <li><a href="#"><i className="iconmoon-pinterest"></i></a></li>
-                                                <li><a href="#"><i className="iconmoon-linkedin2"></i></a></li>
+                                               
                                             </ul>
                                             <span className="copyright-mark">© 2017 Saleh Lash, ALL RIGHTS RESERVED</span>
                                             </div>
