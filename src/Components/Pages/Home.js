@@ -160,8 +160,8 @@ export default class Home extends Component {
                             </div>
                             <div className="js-masonry">
                                 <div className="row" id="work-grid">
-                                    {page.Home.fields.siteComponentPhotos.map((portfolio_item) => {
-                                        if (page.Home.fields.siteComponentPhotos.indexOf(portfolio_item) % 2 === 0) {
+                                    {page.Gallery.fields.siteComponentPhotos.map((portfolio_item) => {
+                                        if (page.Gallery.fields.siteComponentPhotos.indexOf(portfolio_item) % 2 === 0) {
                                             return (
                                                 <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
                                                     <div className="img home-portfolio-image">
