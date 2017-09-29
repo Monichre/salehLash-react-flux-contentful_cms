@@ -139,9 +139,9 @@ export default class Home extends Component {
                     </div>
                     <div className="container margin-top">
                         <div className="main-title">
-                            <h1>{page.Home.fields.title}</h1>
+                            <h1>{page.Gallery.fields.title}</h1>
                             <hr/>
-                            <h6>{page.Home.fields.subHeader}</h6>
+                            <h5>{page.Gallery.fields.subHeader}</h5>
                         </div>
                         <div className="portfolio-wrapper">
                             <button className="nav">
