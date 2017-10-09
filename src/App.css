@@ -453,16 +453,32 @@ transition: opacity 0.3s ease-out, transform 0.2s ease-out;
 -------------------------------------------------------------- */
 
 .header {
-  height: 100px;
+  
   width: 100%;
   background: #fff;
   z-index: 9;
   position: relative;
 }
 .logo {
-  float: left;
+  display: block;
   line-height: 100px;
+  text-align: center;
 }
+#Nav {
+  display: block;
+  text-align: center;
+}
+#Nav li a {
+  border-left: 1px solid #333;
+  padding: 0 10px;
+}
+#Nav li:first-of-type  a{
+  border: none;
+}
+#Nav li:first-of-type, #Nav li:last-of-type {
+  position: relative;
+}
+#Nav li:first-of-type:before, #Nav li:last-of-type:before
 
 a>span.site-name{
   text-transform: uppercase;
@@ -3164,10 +3180,4 @@ color: #d2d2d2;
   width: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-
-#Nav {
-  line-height: 100px;
-  text-align: right;
 }

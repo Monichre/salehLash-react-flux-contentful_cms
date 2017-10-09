@@ -20,13 +20,13 @@ export function getStore(callback) {
             console.log(response)
             let response_items = response.items
 
+            let logo = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'logo')
             let pages = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'page')
             let site_components = _.filter(response_items, (item) => item.sys.contentType.sys.id === 'siteComponent')
 
-            console.log(pages)
-            console.log(site_components)
-
+      
             AppStore.data.pages = pages
+            AppStore.data.logo = logo
             AppStore.data.site_components = site_components
 
             AppStore.data.ready = true
