@@ -3,11 +3,6 @@ import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import ReactMarkdown from 'react-markdown'
 
-// style="background-image:url(img/about-header.jpg)">
-// style="font-size: 18px; line-height: 26px;"
-// style="background: url(img/our-story.jpg) no-repeat" 
-
-
 export default class About extends Component {
     componentDidMount() {
 
@@ -23,7 +18,7 @@ export default class About extends Component {
     }
     render() {
         const page = AppStore.data.page
-        console.log(page)
+        
         const title = page.fields.pageTitle
         const subTitle = page.fields.subTitle
         const content = page.fields.pageContent

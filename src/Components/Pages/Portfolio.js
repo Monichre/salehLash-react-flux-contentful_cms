@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 import ReactMarkdown from 'react-markdown'
+import Masonry from 'react-masonry-component'
 
 export default class Portfolio extends Component {
     componentDidMount() {
@@ -64,35 +65,38 @@ export default class Portfolio extends Component {
                                 <a href="javascript:void(0)" className="filter" data-filter="graphic">Graphic Design</a>
                             </div>
                             <div className="js-masonry">
-                                <div className="row" id="work-grid">
-                                    {photos.map(photo => {
-                                        return (
-                                            <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
-                                                <div className="img home-portfolio-image">
-                                                    <img src={photo.fields.file.url} alt="Portfolio Item" />
-                                                    <div className="overlay-thumb">
-                                                        <a href="javascript:void(0)" className="like-product">
-                                                            <i className="ion-ios-heart-outline"></i>
-                                                            <span className="like-product">Liked</span>
-                                                            <span className="output">250</span>
-                                                        </a>
-                                                        <div className="details">
-                                                            <span className="title">STYLE FASHION</span>
-                                                            <span className="info">NEW BAG & STYLE FASHION</span>
+                                            <Masonry
+                                                className={"row"} 
+                                                id={"work-grid"}>
+                                            
+                                                {photos.map(photo => {
+                                                    return (
+                                                        <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
+                                                            <div className="img home-portfolio-image">
+                                                                <img src={photo.fields.file.url} alt="Portfolio Item" />
+                                                                <div className="overlay-thumb">
+                                                                    <a href="javascript:void(0)" className="like-product">
+                                                                    <img src='icons/heart.svg' alt="Heart Icon"/>
+                                                                        <span className="like-product">Liked</span>
+                                                                        <span className="output">250</span>
+                                                                    </a>
+                                                                    <div className="details">
+                                                                        <span className="title">STYLE FASHION</span>
+                                                                        <span className="info">NEW BAG & STYLE FASHION</span>
+                                                                    </div>
+                                                                    <span className="btnBefore"></span>
+                                                                    <span className="btnAfter"></span>
+                                                                    <a className="main-portfolio-link" href="single-project.html"></a>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <span className="btnBefore"></span>
-                                                        <span className="btnAfter"></span>
-                                                        <a className="main-portfolio-link" href="single-project.html"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
-                                    
-                                </div>
+                                                    )
+                                                })}
+                                        </Masonry>     
+                        
                             </div>
                             <div className="load-more">
-                                <a href="javascript:void(0)" id="load-more"><i className="icon-refresh"></i></a>
+                            <a href="javascript:void(0)" id="load-more"><img src='icons/arrow-up.svg' alt="Arrow Up Icon"/></a>
                             </div>
                         </div>
                     </div>

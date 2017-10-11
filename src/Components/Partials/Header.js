@@ -14,9 +14,10 @@ export default class Header extends Component {
 
         const LOGO = AppStore.data.logo[0].fields.photo.fields.file.url
         const logo_style = {
-            height: '100px',
-            marginBottom: '20px',
-            marginTop: '-40px'
+            height: '75px',
+            display: 'inline',
+            marginRight: '10px'
+
         }
         const social_nav_style = {
             textAlign: 'right',
@@ -35,18 +36,19 @@ export default class Header extends Component {
             
             
                 <div className="header">
-                    <div className="social_nav">
-                        <ul className="inline-list list-inline" style={social_nav_style}>
+                    <div id="upperNav">
+                        <div className="logo">
+                           <img src={LOGO} alt="" style={logo_style} />
+                           <span className="logo_title">Selah Lash & Co</span>
+                        </div>
+                        <ul className="inline-list list-inline social_nav" style={social_nav_style}>
                             <li><a href="" style={link_style}><img src="icons/facebook.svg" style={icon_style} alt=""/></a></li>
                             <li><a href="" style={link_style}><img src="icons/instagram.svg" style={icon_style} alt=""/></a></li>
                             <li><a href="" style={link_style}><img src="icons/mail.svg" style={icon_style} alt=""/></a></li>
                         </ul>
                     </div>
                     <div className="container">
-                        <div className="logo">
-                           <img src={LOGO} alt="" style={logo_style} />
-                        </div>
-
+                       
                         <ul id="Nav" className="inline-list list-inline">
                             <li className="">
                                 <Link to='/'>Home</Link>
@@ -58,7 +60,7 @@ export default class Header extends Component {
                                 <Link to='/portfolio'>Portfolio</Link>
                             </li>
                             <li className="">
-                                <Link to='/'>Beauty Tips</Link>
+                                <Link to='/beauty'>Beauty Tips</Link>
                             </li>
                             <li className="">
                                 <Link to='/faq'>FAQ</Link>

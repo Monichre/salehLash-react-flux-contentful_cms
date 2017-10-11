@@ -12,6 +12,7 @@ import Home from './Components/Pages/Home'
 import Portfolio from './Components/Pages/Portfolio'
 import About from './Components/Pages/About'
 import FAQ from './Components/Pages/FAQ'
+import Beauty from './Components/Pages/Beauty'
 import Contact from './Components/Pages/Contact'
 
 let routes_with_sub = [
@@ -27,7 +28,12 @@ let routes_with_sub = [
 	{
 		path: '/portfolio',
 		component: Portfolio
-	},
+    },
+    {
+        path: '/beauty',
+		exact: true,
+        component: Beauty
+    },
 	{
         path: '/faq',
 		exact: true,

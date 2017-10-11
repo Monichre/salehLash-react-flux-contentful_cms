@@ -3,6 +3,7 @@ import AppDispatcher from '../../Dispatcher/AppDispatcher'
 import AppStore from '../../Stores/AppStore'
 
 import OwlCarousel from 'react-owl-carousel2'
+import Masonry from 'react-masonry-component'
 
 export default class Home extends Component {
     componentDidMount(){
@@ -34,6 +35,10 @@ export default class Home extends Component {
             lazyLoad: true,
             autoplay: true,
             loop: true
+        }
+        const heart_style = {
+            padding: '5px',
+            margin: 0
         }
 
         const events = {
@@ -159,59 +164,40 @@ export default class Home extends Component {
                                 <a href="javascript:void(0)" className="filter" data-filter="graphic">Buttholes</a>
                             </div>
                             <div className="js-masonry">
-                                <div className="row" id="work-grid">
-                                    {page.Gallery.fields.siteComponentPhotos.map((portfolio_item) => {
-                                        if (page.Gallery.fields.siteComponentPhotos.indexOf(portfolio_item) % 2 === 0) {
-                                            return (
-                                                <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
-                                                    <div className="img home-portfolio-image">
-                                                        <img src={portfolio_item.fields.file.url} alt="Portfolio Item"/>
-                                                        <div className="overlay-thumb">
-                                                            <a href="javascript:void(0)" className="like-product">
-                                                                <i className="ion-ios-heart-outline"></i>
-                                                                <span className="like-product">Liked</span>
-                                                                <span className="output">250</span>
-                                                            </a>
-                                                            <div className="details">
-                                                                <span className="title">Saleh Lash</span>
-                                                                <span className="info">NEW LOOK & Saleh Lash</span>
-                                                            </div>
-                                                            <span className="btnBefore"></span>
-                                                            <span className="btnAfter"></span>
-                                                            <a className="main-portfolio-link" href="single-project.html"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )
-                                        } else {
-                                            <div className="col-md-4 col-sm-4 col-xs-12 mix web">
-                                                <div className="img home-portfolio-image">
-                                                    <img src="img/stock-2.jpg" alt="Portfolio Item"/>
-                                                    <div className="overlay-thumb">
-                                                        <a href="javascript:void(0)" className="like-product">
-                                                            <i className="ion-ios-heart-outline"></i>
-                                                            <span className="like-product">Liked</span>
-                                                            <span className="output">60</span>
-                                                        </a>
-                                                        <div className="details">
-                                                            <span className="title">WATCH-J</span>
-                                                            <span className="info">NEW TREND FASHION</span>
-                                                        </div>
-                                                        <span className="btnBefore"></span>
-                                                        <span className="btnAfter"></span>
-                                                        <a className="main-portfolio-link" href="single-project.html"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        }
+                                
+                                        <Masonry
+                                            className={"row"} 
+                                            id={"work-grid"}>
                                             
-                                    })}
-                    
+                                            {page.Gallery.fields.siteComponentPhotos.map((portfolio_item) => {
+                                                
+                                                    return (
+                                                        <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
+                                                            <div className="img home-portfolio-image">
+                                                                <img className="heart_icon" src={portfolio_item.fields.file.url} alt="Portfolio Item"/>
+                                                                <div className="overlay-thumb">
+                                                                    <a href="javascript:void(0)" className="like-product">
+                                                                        <img src='icons/heart.svg' alt="Heart Icon"/>
+                                                                        <span className="like-product">Liked</span>
+                                                                        <span className="output">250</span>
+                                                                    </a>
+                                                                    <div className="details">
+                                                                        <span className="title">Saleh Lash</span>
+                                                                        <span className="info">NEW LOOK & Saleh Lash</span>
+                                                                    </div>
+                                                                    <span className="btnBefore"></span>
+                                                                    <span className="btnAfter"></span>
+                                                                    <a className="main-portfolio-link" href="single-project.html"></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )    
+                                                })}
+                                        </Masonry>          
                                 </div>
-                            </div>
                         
                             <div className="load-more">
-                                <a href="javascript:void(0)" id="load-more"><i className="icon-refresh"></i></a>
+                                <a href="javascript:void(0)" id="load-more"><img src='icons/arrow-up.svg' alt="Arrow Up Icon"/></a>
                             </div>
                         </div>
                     </div>

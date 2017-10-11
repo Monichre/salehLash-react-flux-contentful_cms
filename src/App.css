@@ -459,10 +459,15 @@ transition: opacity 0.3s ease-out, transform 0.2s ease-out;
   z-index: 9;
   position: relative;
 }
+#upperNav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
 .logo {
-  display: block;
-  line-height: 100px;
-  text-align: center;
+  /* display: block; */
+  /* line-height: 100px; */
+  /* text-align: center; */
 }
 #Nav {
   display: block;
@@ -520,7 +525,7 @@ a:hover>span.site-name{
   position: relative;
 }
 #slider-ef {
-  height: 600px!important;
+  height: 500px!important;
 }
 .slider-images-wrapper {
   z-index: -1;
@@ -2008,6 +2013,9 @@ ul.client-thumb-2 li a img:hover{
   transition: opacity 0.35s, transform 0.35s;
   -o-transition: opacity 0.35s, -o-transform 0.35s;
 }
+.heart_icon {
+  margin: 10px auto;
+}
 .img:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
@@ -2177,7 +2185,7 @@ ul.client-thumb-2 li a img:hover{
   color: #111111;
   clear: both;
   display: block;
-  padding-left: 18px;
+  /* padding-left: 18px; */
 }
 span.like-product {
   position: absolute;
@@ -3201,4 +3209,11 @@ color: #d2d2d2;
   width: 100%;
   object-fit: cover;
   object-position: center;
+}
+.quote p {
+  font-family: 'Shadows Into Light', cursive!important;
+  font-size: 45px!important;
+  line-height: 30px;
+  /* width: 75%!important; */
+  margin: 0 0 20px 100px!important;
 }
