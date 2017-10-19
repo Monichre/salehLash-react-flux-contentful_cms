@@ -2161,8 +2161,8 @@ ul.client-thumb-2 li a img:hover{
 }
 .img .like-product {
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10px;
+  top: 10px;
   z-index: 9;
   cursor: pointer;
   opacity: 0;

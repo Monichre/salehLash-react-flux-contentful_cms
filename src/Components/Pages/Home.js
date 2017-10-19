@@ -169,25 +169,25 @@ export default class Home extends Component {
                                             className={"row"} 
                                             id={"work-grid"}>
                                             
-                                            {page.Gallery.fields.siteComponentPhotos.map((portfolio_item) => {
+                                            {page.Gallery.fields.showcaseItems.map((showcaseItem) => {
                                                 
                                                     return (
                                                         <div className="col-md-4 col-sm-4 col-xs-12 mix branding">
                                                             <div className="img home-portfolio-image">
-                                                                <img className="heart_icon" src={portfolio_item.fields.file.url} alt="Portfolio Item"/>
+                                                                <img src={showcaseItem.fields.mainPhoto.fields.file.url} alt="Portfolio Item"/>
                                                                 <div className="overlay-thumb">
                                                                     <a href="javascript:void(0)" className="like-product">
-                                                                        <img src='icons/heart.svg' alt="Heart Icon"/>
+                                                                        <img className="heart_icon" src='icons/heart.svg' alt="Heart Icon"/>
                                                                         <span className="like-product">Liked</span>
-                                                                        <span className="output">250</span>
+                                                                        <span className="output"></span>
                                                                     </a>
                                                                     <div className="details">
-                                                                        <span className="title">Saleh Lash</span>
-                                                                        <span className="info">NEW LOOK & Saleh Lash</span>
+                                                                        <span className="title">{showcaseItem.fields.title}</span>
+                                                                        <span className="info">{showcaseItem.fields.treatment}</span>
                                                                     </div>
                                                                     <span className="btnBefore"></span>
                                                                     <span className="btnAfter"></span>
-                                                                    <a className="main-portfolio-link" href="single-project.html"></a>
+                                                                    <a className="main-portfolio-link" href="single-project.html">Something here?</a>
                                                                 </div>
                                                             </div>
                                                         </div>
